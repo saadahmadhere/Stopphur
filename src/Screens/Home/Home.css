@@ -1,8 +1,5 @@
 .main_home {
   width: 100%;
-}
-
-.main_home {
   min-height: calc(100vh - 5rem);
   display: flex;
   flex-wrap: wrap;
