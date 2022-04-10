@@ -7,17 +7,17 @@ const Navbar = () => {
       <nav className="navbar flex">
         <Link to="/">
           <div className="logo">
-            <div className=" logo_text txt_semibold">stopphur</div>
+            <h1 className="logo_text txt_semibold">stopphur</h1>
           </div>
         </Link>
 
         <ul className="navbar_links flex list_style_none">
           <li className="ml_8">
-            <i className="fas fa-moon fa-2x"></i>
+            <i className="fas fa-moon fa-xl"></i>
           </li>
           <li className="ml_8">
             <Link to="/login">
-              <i className="fas fa-user fa-2x"></i>
+              <i className="fas fa-user fa-xl"></i>
             </Link>
           </li>
         </ul>
