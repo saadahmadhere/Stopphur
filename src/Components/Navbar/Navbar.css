@@ -1,0 +1,26 @@
+.navbar {
+  padding-inline: var(--size-6);
+  background-color: var(--white);
+  color: #f9a826;
+  box-shadow: 1px 1px var(--size-1) rgb(159, 159, 157);
+  height: 10vh;
+}
+
+.logo_text {
+  font-size: var(--size-8);
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+}
+
+@media only screen and (min-width: 769px) {
+  .navbar {
+    padding-inline: var(--size-16);
+  }
+  .navbar_links {
+    justify-content: space-around;
+  }
+
+  .logo_text {
+    font-size: var(--size-11);
+  }
+}
