@@ -3,11 +3,11 @@
   background-color: var(--white);
   color: #f9a826;
   box-shadow: 1px 1px var(--size-1) rgb(159, 159, 157);
-  height: 10vh;
+  height: 5rem;
 }
 
 .logo_text {
-  font-size: var(--size-8);
+  font-size: var(--size-9);
   font-family: "Lato", sans-serif;
   font-style: italic;
 }
@@ -19,8 +19,7 @@
   .navbar_links {
     justify-content: space-around;
   }
-
-  .logo_text {
-    font-size: var(--size-11);
+  .navbar_links i {
+    cursor: pointer;
   }
 }
