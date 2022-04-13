@@ -15,7 +15,7 @@ const Modal = ({ setShowModal, showModal }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     setTasks((prev) => [...prev, { _id: uuid(), ...modalValue }]);
-    return setShowModal(false);
+    setShowModal(false);
   };
 
   return (
