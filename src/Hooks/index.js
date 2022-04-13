@@ -1,0 +1,1 @@
+export { useFixSlider } from "./useFixSlider";
