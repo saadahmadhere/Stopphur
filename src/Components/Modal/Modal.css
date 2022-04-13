@@ -1,0 +1,40 @@
+.modal {
+  max-width: 300px;
+}
+
+.modal input,
+.modal textarea {
+  padding: var(--size-1) var(--size-2);
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.336);
+  border-radius: var(--size-2);
+}
+.modal input:focus,
+.modal textarea:focus {
+  border: 1px solid #f9a826;
+  outline: none;
+}
+
+.modal .action_buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.modal .action_buttons > * {
+  margin-top: var(--size-2);
+  border-radius: var(--size-6);
+}
+
+.action_buttons .btn_primary {
+  background-color: #f9a826;
+}
+
+.action_buttons .btn_outline {
+  border: 1px solid #f9a826;
+  color: #f9a826;
+}
+
+.action_buttons .btn_outline:hover {
+  background-color: transparent;
+}

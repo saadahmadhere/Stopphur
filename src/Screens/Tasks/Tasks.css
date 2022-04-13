@@ -1,0 +1,56 @@
+.tasks_bg__light {
+  background-color: #f1ece5;
+  min-height: calc(100vh - 5rem);
+  padding-top: var(--size-5);
+}
+
+.main_tasks {
+  width: 80%;
+  margin: auto;
+}
+
+.tasks_todo {
+  background-color: var(--white);
+  border-radius: var(--size-2);
+}
+
+.add_tasks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn_todo,
+.btn_edit__task,
+.btn_delete__task {
+  color: #f9a826;
+}
+
+.tasks_list {
+  overflow-y: auto;
+  max-height: 22rem;
+}
+
+.task {
+  border: 2px solid #fedaa0;
+  border-radius: var(--size-2);
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 468px) {
+  .main_tasks {
+    width: 100%;
+  }
+
+  .tasks_welcome__text .h1,
+  .tasks_welcome__text .h3 {
+    padding-inline-start: var(--size-1);
+    text-align: center;
+  }
+
+  .tasks_todo {
+    padding-inline: var(--size-2);
+  }
+  .tasks_list {
+    padding-inline: var(--size-4);
+  }
+}
