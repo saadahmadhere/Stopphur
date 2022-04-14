@@ -1,25 +1,71 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Modal.css";
 import { useTasks } from "../../Contexts";
 import { v4 as uuid } from "uuid";
 
-const Modal = ({ setShowModal, showModal }) => {
+const Modal = ({
+  showModal,
+  setShowModal,
+  taskToBeEdited,
+  isGettingEdited,
+  setIsGettingEdited,
+}) => {
   const { setTasks } = useTasks();
-
+  const [error, setError] = useState("");
   const [modalValue, setModalValue] = useState({
     title: "",
     description: "",
     time: "",
   });
 
-  const submitHandler = (e) => {
+  const modalCloseHandler = (e) => {
     e.preventDefault();
-    setTasks((prev) => [...prev, { _id: uuid(), ...modalValue }]);
-    setShowModal(false);
+    if (isGettingEdited) {
+      setIsGettingEdited(false);
+    } else {
+      setShowModal(false);
+    }
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const isStringFilled = /^(?!\s*$).+/;
+    const titleNotEmpty = isStringFilled.test(modalValue.title);
+    const descriptionNotEmpty = isStringFilled.test(modalValue.description);
+
+    if (!titleNotEmpty) {
+      setError("Please provide a valid title");
+    } else if (!descriptionNotEmpty) {
+      setError("Please provide a valid description");
+    } else {
+      if (isGettingEdited) {
+        setTasks((prev) =>
+          prev.map((task) => {
+            return task.id === taskToBeEdited.id
+              ? { ...modalValue, id: task.id }
+              : task;
+          })
+        );
+        setIsGettingEdited(false);
+      } else {
+        setShowModal(false);
+        setTasks((prev) => [...prev, { id: uuid(), ...modalValue }]);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (taskToBeEdited) {
+      const { title, description, time } = taskToBeEdited;
+      setModalValue({ title, description, time });
+    }
+  }, [taskToBeEdited]);
+
   return (
-    <div className={`modal_container ${showModal && "modal_active"}`}>
+    <div
+      className={`modal_container ${
+        (showModal || isGettingEdited) && "modal_active"
+      }`}>
       <div className="modal">
         <form onSubmit={submitHandler}>
           <label>
@@ -30,9 +76,13 @@ const Modal = ({ setShowModal, showModal }) => {
               placeholder="Add Title"
               style={{ width: "100%" }}
               value={modalValue.title}
-              onChange={(e) =>
-                setModalValue((prev) => ({ ...prev, title: e.target.value }))
-              }
+              onChange={(e) => {
+                setError("");
+                return setModalValue((prev) => ({
+                  ...prev,
+                  title: e.target.value,
+                }));
+              }}
               autoFocus
               required
             />
@@ -46,10 +96,13 @@ const Modal = ({ setShowModal, showModal }) => {
               className="block mb_2"
               value={modalValue.description}
               onChange={(e) =>
-                setModalValue((prev) => ({
-                  ...prev,
-                  description: e.target.value,
-                }))
+                setModalValue((prev) => {
+                  setError("");
+                  return {
+                    ...prev,
+                    description: e.target.value,
+                  };
+                })
               }
               required></textarea>
           </label>
@@ -58,8 +111,10 @@ const Modal = ({ setShowModal, showModal }) => {
             <input
               type="number"
               className="block mb_2"
-              placeholder="Set the time"
+              placeholder="Set the time between 1 to 60 min"
               value={modalValue.time}
+              min="1"
+              max="60"
               onChange={(e) =>
                 setModalValue((prev) => ({
                   ...prev,
@@ -72,16 +127,16 @@ const Modal = ({ setShowModal, showModal }) => {
           <div className="action_buttons ">
             <button
               className="btn btn_outline px_3 py_1"
-              onClick={(e) => {
-                e.preventDefault();
-                return setShowModal(false);
-              }}>
+              onClick={modalCloseHandler}>
               Close
             </button>
             <button className="btn btn_primary px_5 py_2 ml_1" type="submit">
-              Add
+              {isGettingEdited ? "Update" : "Add"}
             </button>
           </div>
+          <h6 className="h6 mt_4 txt_center" style={{ color: "red" }}>
+            {error}
+          </h6>
         </form>
       </div>
     </div>
