@@ -15,15 +15,7 @@ const Navbar = () => {
           <li className="ml_8">
             <i className="fas fa-moon fa-xl"></i>
           </li>
-          <li className="ml_8">
-            <Link to="/login">
-              <i className="fas fa-user fa-xl"></i>
-            </Link>
-          </li>
         </ul>
-        <div className="navbar_burger flex">
-          <i className="fas fa-bars fa-lg"></i>
-        </div>
       </nav>
     </>
   );
