@@ -6,6 +6,10 @@
   height: 5rem;
 }
 
+.navbar .navbar_links {
+  display: block;
+}
+
 .logo_text {
   font-size: var(--size-9);
   font-family: "Lato", sans-serif;
