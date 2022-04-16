@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useTasks } from "../../Contexts";
 import { Modal } from "../../Components";
 
@@ -21,7 +22,9 @@ const SingleTask = ({ task }) => {
         />
       )}
 
-      <h4 className="h4">{title}</h4>
+      <Link to={`/pomodoro/${id}`} className="h4" style={{ width: "100%" }}>
+        {title}
+      </Link>
       <div className="task_buttons flex ">
         <button
           className="btn btn_edit__task ml_2"
