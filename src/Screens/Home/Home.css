@@ -8,6 +8,10 @@
   align-items: center;
 }
 
+.darkTheme .main_home {
+  color: rgb(216, 216, 216);
+}
+
 .home_image {
   max-width: 32rem;
 }

@@ -4,6 +4,11 @@
   padding-top: var(--size-5);
 }
 
+.darkTheme .tasks_bg__light {
+  color: #f1ece5;
+  background-color: #0f172a;
+}
+
 .main_tasks {
   width: 80%;
   margin: auto;
@@ -12,6 +17,10 @@
 .tasks_todo {
   background-color: var(--white);
   border-radius: var(--size-2);
+}
+
+.darkTheme .tasks_todo {
+  background-color: #1d2c4f;
 }
 
 .add_tasks {

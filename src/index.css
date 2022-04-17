@@ -5,6 +5,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.darkTheme {
+  background-color: #111827;
+}
+
 ::-webkit-scrollbar {
   width: var(--size-1);
 }

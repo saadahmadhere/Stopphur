@@ -6,6 +6,10 @@
   height: 5rem;
 }
 
+.darkTheme .navbar {
+  background-color: #0e1327;
+}
+
 .navbar .navbar_links {
   display: block;
 }
