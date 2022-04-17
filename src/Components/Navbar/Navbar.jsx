@@ -1,7 +1,9 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../Contexts";
 
 const Navbar = () => {
+  const { darkTheme, setDarkTheme } = useTheme();
   return (
     <>
       <nav className="navbar flex">
@@ -13,7 +15,15 @@ const Navbar = () => {
 
         <ul className="navbar_links flex list_style_none">
           <li className="ml_8">
-            <i className="fas fa-moon fa-xl"></i>
+            <button
+              className="btn"
+              onClick={() => setDarkTheme((prev) => !prev)}>
+              {darkTheme ? (
+                <i className="fas fa-sun fa-xl"></i>
+              ) : (
+                <i className="fas fa-moon fa-xl"></i>
+              )}
+            </button>
           </li>
         </ul>
       </nav>
