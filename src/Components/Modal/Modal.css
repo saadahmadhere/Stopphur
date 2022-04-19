@@ -2,6 +2,18 @@
   max-width: 300px;
 }
 
+.darkTheme .modal {
+  color: #f1ece5;
+  background-color: #1d2c4f;
+}
+
+.darkTheme .modal input,
+.darkTheme .modal textarea {
+  color: #f1ece5;
+  background-color: #192749;
+  border-color: #f9a826;
+}
+
 .modal input,
 .modal textarea {
   padding: var(--size-1) var(--size-2);
@@ -9,6 +21,7 @@
   border: 1px solid rgba(0, 0, 0, 0.336);
   border-radius: var(--size-2);
 }
+
 .modal input:focus,
 .modal textarea:focus {
   border: 1px solid #f9a826;

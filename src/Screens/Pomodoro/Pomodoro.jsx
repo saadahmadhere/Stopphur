@@ -78,9 +78,7 @@ const Pomodoro = () => {
       </section>
       <section className="timer_details">
         <h2 className="h2">{currentTask[0].title}</h2>
-        <p className="txt_regular gray_subtitle">
-          {currentTask[0].description}
-        </p>
+        <p className="txt_regular ">{currentTask[0].description}</p>
       </section>
     </main>
   );

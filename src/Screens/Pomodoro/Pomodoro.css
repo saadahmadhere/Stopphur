@@ -9,11 +9,20 @@
   background-color: #f1ece5;
 }
 
+.darkTheme .pomodoro_main {
+  background-color: #0f172a;
+  color: #f1ece5;
+}
+
 .pomodoro_main > * {
   width: 400px;
   height: 60vh;
   background-color: var(--white);
   border-radius: var(--size-2);
+}
+
+.darkTheme .pomodoro_main > * {
+  background-color: #1d2c4f;
 }
 
 .timer_wrapper {
